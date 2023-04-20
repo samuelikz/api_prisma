@@ -3,10 +3,6 @@ import { createPost, createUser, getPosts, getUsers } from '../controllers/userC
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-    res.json({ message: 'hello world !!' });
-});
-
 router.get('/posts', getPosts);
 router.get('/users', getUsers);
 router.post('/users', createUser);
