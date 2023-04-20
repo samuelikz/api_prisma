@@ -11,11 +11,12 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  nome      String?
-  cpf       String?
-  createdAt DateTime @default(now())
-
+  id          String   @id @default(uuid())
+  system      String?
+  ipInfo      String?
+  location String?
+  
+  createdAt   DateTime @default(now())
   @@map("users")
 }
 
@@ -26,7 +27,7 @@ model Post {
   cpf             String?
   data_nascimento String?
   description     String?
-  createdAt DateTime @default(now())
+  createdAt       DateTime @default(now())
 
   @@map("posts")
 }
