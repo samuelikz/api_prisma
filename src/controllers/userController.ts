@@ -1,5 +1,5 @@
 import {prisma} from "../../prisma/client";
-import { Router, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 // 20/04/2023 Created function on creater user from request samuelikz;
 
