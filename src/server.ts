@@ -7,8 +7,8 @@ import path from 'path';
 const app = express();
 
 app.use(cors({
-    origin: ['dominio.com.br','local.com.br'],
-    methods: ['GET','POST']
+    origin: ['*/*','*/*'],
+    methods: ['GET','POST','DELETE','UPDATE']
 }));
 
 app.use(express.json());
