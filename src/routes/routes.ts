@@ -1,11 +1,11 @@
 import { Router, Request, Response } from 'express';
-import { createPost, createUser, getPosts, getUsers } from '../controllers/userController';
+import { createLogging, createRegistration, getLogging, getRegistration } from '../controllers/UserController';
 
 const router = Router();
 
-router.get('/posts', getPosts);
-router.get('/users', getUsers);
-router.post('/users', createUser);
-router.post('/posts', createPost);
+router.get('/loggin', getLogging);
+router.post('/loggin', createLogging);
+router.get('/registration', getRegistration);
+router.post('/registration', createRegistration);
 
 export default router;

@@ -15,7 +15,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model data_logging {
   id       String  @id @default(uuid())
   system   String?
   ipInfo   String?
@@ -23,17 +23,27 @@ model User {
 
   createdAt DateTime @default(now())
 
-  @@map("users")
+  @@map("logging")
 }
 
-model Post {
+model data_registration {
   id              String   @id @default(uuid())
-  nome            String?
+  name            String?
   email           String?
   cpf             String?
   data_nascimento String?
   description     String?
   createdAt       DateTime @default(now())
 
-  @@map("posts")
+  @@map("registration")
+}
+
+model user_accounts {
+  id        String   @id @default(uuid())
+  name      String?
+  password  String?
+  status    String?
+  createdAt DateTime @default(now())
+
+  @@map("users")
 }
