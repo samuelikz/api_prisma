@@ -1,46 +1,41 @@
 <!DOCTYPE html>
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not found !</title>
+    <title>Not Found Error!</title>
     <style>
         body {
-            background-color: rgb(30, 28, 28);
-            margin: 0px;
+            background-color: #1E1C1C;
+            margin: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             font-family: monospace;
         }
-
         section {
-            color: azure;
-            width: 40%;
-            padding: 40px;
-            border-radius: 5px;
-            box-sizing: border-box;
-            margin: 0px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-        }
-    </style>
+        color: white;
+        width: 40%;
+        padding: 40px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+    }
+</style>
 </head>
-
 <body>
     <section>
         <h1><%= error.message %></h1>
-        <div>
-            |
-        </div>
+        <div>|</div>
         <div>
             <p><%= error.status %></p>
         </div>
     </section>
 </body>
-
 </html>

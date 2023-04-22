@@ -1,5 +1,5 @@
 import express from 'express';
-import routes from '../src/routes/routes';
+import routes from './routes/routes';
 import errorRoutes from './middleware/notFoundMiddleware';
 import cors from 'cors';
 import path from 'path';
@@ -11,7 +11,6 @@ app.use(cors({
     origin: ['https://example.com'],
     methods: ['GET', 'POST']
 }));
-
 
 app.use(limiterByIP)
 app.use(express.json());
