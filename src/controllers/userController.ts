@@ -17,6 +17,19 @@ export const createLogging = async (req: Request, res: Response) => {
     res.json(logging);
 }
 
+export const createUser = async (req: Request, res: Response) => {
+    const { name, password } = req.body;
+    const hashedPASSWORD = await Crypto.hashd(password);
+
+    const user = await prisma.user_accounts.create({
+        data: {
+            name,
+            password: hashedPASSWORD
+        }
+    });
+    res.json(user);
+}
+
 // 20/04/2023 Created function on created post from form samuelikz;
 
 export const createRegistration = async (req: Request, res: Response) => {
