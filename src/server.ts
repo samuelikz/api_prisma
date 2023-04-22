@@ -1,14 +1,14 @@
 import express from 'express';
 import routes from './routes/routes';
 import errorRoutes from './middleware/notFoundMiddleware';
+import { limiterByIP } from './middleware/rateLimitByIP';
 import cors from 'cors';
 import path from 'path';
-import { limiterByIP } from './middleware/rateLimitByIP';
 
 const app = express();
 
 app.use(cors({
-    origin: ['https://example.com'],
+    origin: ['*'],
     methods: ['GET', 'POST']
 }));
 
@@ -18,4 +18,5 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use('/', routes, errorRoutes);
 
-app.listen(3333, () => console.log('Server is running !!'));
+app.listen(process.env.PORT, () => console.log('Server is running !!'));
+
