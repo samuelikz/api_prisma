@@ -3,14 +3,17 @@ import routes from '../src/routes/routes';
 import errorRoutes from './routes/errorRoutes';
 import cors from 'cors';
 import path from 'path';
+import { limiterByIP } from './middleware/limiterByIP';
 
 const app = express();
 
 app.use(cors({
-    origin: ['*/*','*/*'],
-    methods: ['GET','POST','DELETE','UPDATE']
+    origin: ['https://example.com'],
+    methods: ['GET', 'POST']
 }));
 
+
+app.use(limiterByIP)
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));

@@ -3,7 +3,13 @@ import express from "express";
 const router = express.Router();
 
 router.use((req, res, next) => {
-    res.status(404).render('404_error', {title: 'not found'});
-})
+    res.status(404).render('404_error', {
+        title: 'Not Found',
+        error: {
+          status: '404',
+          message: 'The requested page was not found'
+        }
+    }
+)})
 
 export default router;
