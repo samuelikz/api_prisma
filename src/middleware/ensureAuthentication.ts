@@ -5,7 +5,6 @@ import { JWTService } from "../utils/jwtService";
 export const ensureAuthentication: RequestHandler = async (req, res, next) => {
     const { authorization } = req.headers;
 
-
     if (!authorization) {
         return res.status(StatusCodes.UNAUTHORIZED).json({
             erros: { default: 'Não Autorizado' }
@@ -30,6 +29,7 @@ export const ensureAuthentication: RequestHandler = async (req, res, next) => {
             erros: { default: 'Não Autorizado' }
         });
     }
-
+    
+    req.headers.idUsuario = jwData.uid.toString();
     return next();
 }
