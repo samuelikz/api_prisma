@@ -12,7 +12,7 @@ export const limiterByIP = rateLimit({
   },
   handler: (req, res, next) => {
     // Renderiza a página de erro quando o limite é atingido
-    res.status(429).render(path.join(__dirname, '../views/404_error'), {
+    res.status(429).render(path.join(__dirname, '../views/page_error'), {
       title: 'Not Found',
       error: {
         status: '429',

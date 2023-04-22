@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { securityUtils } from "../../utils/securityUtils";
 
 export const createUser = async (req: Request, res: Response) => {
-    const { name, password } = req.body;
+    const { name, password, status } = req.body;
     const hashedPASSWORD = await securityUtils.hashd(password);
 
     const userI = await prisma.user_accounts.findUnique({ where: { name } })
@@ -15,7 +15,8 @@ export const createUser = async (req: Request, res: Response) => {
     const user = await prisma.user_accounts.create({
         data: {
             name,
-            password: hashedPASSWORD
+            password: hashedPASSWORD,
+            status
         }
     });
     res.json(user);

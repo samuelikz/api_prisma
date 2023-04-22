@@ -1,13 +1,16 @@
 import { Router } from 'express';
 import * as controllers from '../controllers/UsersControllers/index';
+import { signin } from '../controllers/UsersSignin/Signin';
+import { ensureAuthentication } from '../middleware/ensureAuthentication';
 
 const router = Router();
 
-router.post('/users', controllers.createUser);
-router.get('/users', controllers.getUsers);
-router.get('/logs', controllers.getLogging);
-router.post('/logs', controllers.createLogging);
-router.get('/register', controllers.getRegistration);
-router.post('/register', controllers.createRegistration);
+router.post('/entrar', signin);
+router.post('/users', ensureAuthentication, controllers.createUser);
+router.get('/users', ensureAuthentication, controllers.getUsers);
+router.get('/logs', ensureAuthentication, controllers.getLogging);
+router.post('/logs', ensureAuthentication, controllers.createLogging);
+router.get('/register', ensureAuthentication, controllers.getRegistration);
+router.post('/register', ensureAuthentication, controllers.createRegistration);
 
 export default router;
