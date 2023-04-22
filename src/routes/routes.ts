@@ -6,10 +6,13 @@ import { ensureAuthentication } from '../middleware/ensureAuthentication';
 const router = Router();
 
 router.post('/entrar', signin);
+
 router.post('/users', ensureAuthentication, controllers.createUser);
 router.get('/users', ensureAuthentication, controllers.getUsers);
+
 router.get('/logs', ensureAuthentication, controllers.getLogging);
 router.post('/logs', ensureAuthentication, controllers.createLogging);
+
 router.get('/register', ensureAuthentication, controllers.getRegistration);
 router.post('/register', ensureAuthentication, controllers.createRegistration);
 

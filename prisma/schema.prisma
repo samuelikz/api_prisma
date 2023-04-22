@@ -30,7 +30,7 @@ model data_registration {
   id              String   @id @default(uuid())
   name            String?
   email           String?
-  cpf             String?
+  cpf             String   @unique
   data_nascimento String?
   description     String?
   createdAt       DateTime @default(now())
