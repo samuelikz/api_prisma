@@ -1,9 +1,9 @@
 import express from 'express';
 import routes from '../src/routes/routes';
-import errorRoutes from './routes/errorRoutes';
+import errorRoutes from './middleware/notFoundMiddleware';
 import cors from 'cors';
 import path from 'path';
-import { limiterByIP } from './middleware/limiterByIP';
+import { limiterByIP } from './middleware/rateLimitByIP';
 
 const app = express();
 

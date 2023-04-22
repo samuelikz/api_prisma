@@ -8,8 +8,8 @@ const hashd = async (value: string) => {
     return hashPass;
 }
 
-const verify =async (value: string, hashdverify: string) => {
+const verify = async (value: string, hashdverify: string) => {
     return await compare(value, hashdverify)
 }
 //const match = await Crypto.verify(value, recebe)
-export const Crypto = {hashd,verify}
+export const securityUtils = {hashd,verify}
