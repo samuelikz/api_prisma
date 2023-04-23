@@ -7,10 +7,11 @@ import path from 'path';
 
 const app = express();
 
-app.use(cors({
-    origin: ['*'],
-    methods: ['GET', 'POST']
-}));
+app.use(cors(
+    {
+        origin: process.env.ENABLED_CORS,
+    }
+));
 
 app.use(limiterByIP)
 app.use(express.json());
