@@ -7,7 +7,7 @@ const router = Router();
 
 router.post('/entrar', signin);
 
-router.post('/users', ensureAuthentication, controllers.createUser);
+router.post('/users', controllers.createUser);
 router.get('/users', ensureAuthentication, controllers.getUsers);
 
 router.get('/logs', ensureAuthentication, controllers.getLogging);
