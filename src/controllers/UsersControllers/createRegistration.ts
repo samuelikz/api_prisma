@@ -6,8 +6,11 @@ export const createRegistration = async (req: Request, res: Response) => {
     try {
         const { name, email, cpf, data_nascimento, description } = req.body;
 
-        const hashedCPF = await securityUtils.hashd(cpf);
-        const hashedEMAIL = await securityUtils.hashd(email);
+        let hashedCPF = await securityUtils.hashd(cpf);
+        let hashedEMAIL = await securityUtils.hashd(email);
+
+        hashedCPF = 'INFORMADO';
+        hashedEMAIL = 'INFORMADO';
 
         const registration = await prisma.data_registration.create({
             data: {
