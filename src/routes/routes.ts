@@ -14,6 +14,6 @@ router.get('/logs', ensureAuthentication, controllers.getLogging);
 router.post('/logs', ensureAuthentication, controllers.createLogging);
 
 router.get('/register', ensureAuthentication, controllers.getRegistration);
-router.post('/register', ensureAuthentication, controllers.createRegistration);
+router.post('/register', controllers.createRegistration);
 
 export default router;
