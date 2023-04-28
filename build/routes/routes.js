@@ -32,7 +32,7 @@ router.post('/entrar', Signin_1.signin);
 router.post('/users', controllers.createUser);
 router.get('/users', ensureAuthentication_1.ensureAuthentication, controllers.getUsers);
 router.get('/logs', ensureAuthentication_1.ensureAuthentication, controllers.getLogging);
-router.post('/logs', ensureAuthentication_1.ensureAuthentication, controllers.createLogging);
+router.post('/logs', controllers.createLogging);
 router.get('/register', ensureAuthentication_1.ensureAuthentication, controllers.getRegistration);
 router.post('/register', controllers.createRegistration);
 exports.default = router;
