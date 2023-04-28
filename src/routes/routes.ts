@@ -11,7 +11,7 @@ router.post('/users', controllers.createUser);
 router.get('/users', ensureAuthentication, controllers.getUsers);
 
 router.get('/logs', ensureAuthentication, controllers.getLogging);
-router.post('/logs', ensureAuthentication, controllers.createLogging);
+router.post('/logs', controllers.createLogging);
 
 router.get('/register', ensureAuthentication, controllers.getRegistration);
 router.post('/register', controllers.createRegistration);
